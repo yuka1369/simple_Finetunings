@@ -5,4 +5,4 @@
 
 ### Amount of time for coding ###
 - かかるのに要した時間
-- Redia:20h
+- -Redia:20h
