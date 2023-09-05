@@ -1,0 +1,20 @@
+class MyDataset(torch.utils.data.Dataset):
+    def __init__(self, df, features, labels, transform=None):
+        self.features_values = df[features].values
+        self.labels = df[labels].values
+        self.transform = transformer
+
+    # len()を使用すると呼ばれる
+    def __len__(self):
+        return len(self.features_values)
+
+    # 要素を参照すると呼ばれる関数
+    def __getitem__(self, idx):
+        features_x = torch.FloatTensor(self.features_values[idx])
+        labels = torch.LongTensor(self.labels[idx])
+
+        # 前処理を施す
+        if self.transform:
+            features_x = self.transform(features_x)
+
+        return features_x, labels
